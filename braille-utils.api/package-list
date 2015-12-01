@@ -1,0 +1,9 @@
+org.daisy.braille.api.embosser
+org.daisy.braille.api.factory
+org.daisy.braille.api.paper
+org.daisy.braille.api.table
+org.daisy.braille.api.validator
+org.daisy.braille.consumer.embosser
+org.daisy.braille.consumer.paper
+org.daisy.braille.consumer.table
+org.daisy.braille.consumer.validator
