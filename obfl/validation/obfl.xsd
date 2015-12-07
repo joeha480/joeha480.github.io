@@ -441,24 +441,24 @@
   </xs:attributeGroup>
   <xs:element name="template">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="obfl:header"/>
-        <xs:element maxOccurs="unbounded" ref="obfl:footer"/>
-      </xs:sequence>
-      <xs:attributeGroup ref="obfl:attlist-template"/>
+      <xs:complexContent>
+        <xs:extension base="obfl:template-children">
+          <xs:attributeGroup ref="obfl:attlist-template"/>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attlist-template">
     <xs:attribute name="use-when" use="required"/>
   </xs:attributeGroup>
-  <xs:element name="default-template">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="obfl:header"/>
-        <xs:element maxOccurs="unbounded" ref="obfl:footer"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="default-template" type="obfl:template-children"/>
+  <xs:complexType name="template-children">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" ref="obfl:header"/>
+      <xs:element maxOccurs="unbounded" ref="obfl:footer"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="obfl:margin-region"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:element name="header">
     <xs:complexType>
       <xs:sequence>
@@ -480,6 +480,34 @@
   </xs:element>
   <xs:attributeGroup name="attlist-footer">
     <xs:attributeGroup ref="obfl:row-spacing"/>
+  </xs:attributeGroup>
+  <xs:element name="margin-region">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="obfl:marker-indicator"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="obfl:attlist-margin-region"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist-margin-region">
+    <xs:attribute name="align" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="left"/>
+          <xs:enumeration value="right"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="width" type="xs:positiveInteger"/>
+  </xs:attributeGroup>
+  <xs:element name="marker-indicator">
+    <xs:complexType>
+      <xs:attributeGroup ref="obfl:attlist-marker-indicator"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist-marker-indicator">
+    <xs:attribute name="markers" use="required" type="xs:NMTOKENS"/>
+    <xs:attribute name="indicator" use="required" type="xs:normalizedString"/>
   </xs:attributeGroup>
   <xs:element name="field">
     <xs:complexType>

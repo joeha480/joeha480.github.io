@@ -164,17 +164,28 @@ attlist-layout-master &=
   attribute duplex { "true" | "false" }?,
   attribute page-number-variable { text }?,
   border-atts
-template = element template { attlist-template, header+, footer+ }
+template = element template { attlist-template, template-children }
 attlist-template &= attribute use-when { text }
 default-template =
   element default-template {
-    attlist-default-template, header+, footer+
+    attlist-default-template, template-children
   }
 attlist-default-template &= empty
+template-children = header+, footer+, margin-region*
 header = element header { attlist-header, field* }
 attlist-header &= row-spacing
 footer = element footer { attlist-footer, field* }
 attlist-footer &= row-spacing
+margin-region =
+  element margin-region { attlist-margin-region, marker-indicator? }
+attlist-margin-region &=
+  attribute align { "left" | "right" },
+  attribute width { xsd:positiveInteger }?
+marker-indicator =
+  element marker-indicator { empty, attlist-marker-indicator }
+attlist-marker-indicator =
+  attribute markers { xsd:NMTOKENS },
+  attribute indicator { xsd:normalizedString }
 field =
   element field {
     attlist-field,
