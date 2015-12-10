@@ -484,7 +484,7 @@
   <xs:element name="margin-region">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" ref="obfl:marker-indicator"/>
+        <xs:element minOccurs="0" ref="obfl:indicators"/>
       </xs:sequence>
       <xs:attributeGroup ref="obfl:attlist-margin-region"/>
     </xs:complexType>
@@ -500,6 +500,13 @@
     </xs:attribute>
     <xs:attribute name="width" type="xs:positiveInteger"/>
   </xs:attributeGroup>
+  <xs:element name="indicators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="obfl:marker-indicator"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="marker-indicator">
     <xs:complexType>
       <xs:attributeGroup ref="obfl:attlist-marker-indicator"/>

@@ -177,10 +177,11 @@ attlist-header &= row-spacing
 footer = element footer { attlist-footer, field* }
 attlist-footer &= row-spacing
 margin-region =
-  element margin-region { attlist-margin-region, marker-indicator? }
+  element margin-region { attlist-margin-region, indicators? }
 attlist-margin-region &=
   attribute align { "left" | "right" },
   attribute width { xsd:positiveInteger }?
+indicators = element indicators { marker-indicator* }
 marker-indicator =
   element marker-indicator { empty, attlist-marker-indicator }
 attlist-marker-indicator =
