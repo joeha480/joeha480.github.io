@@ -1,0 +1,18 @@
+body {
+	font-family: sans-serif;
+	letter-spacing: 1pt;
+	margin-left:5em;
+	margin-right:5em;
+	margin-top:3em;
+	margin-bottom:1em;
+	background-color: #4bf;
+	/*background: linear-gradient(#4bb, #4bf);*/
+}
+
+h1, h2 {
+	color: #eee;	
+}
+
+a:VISITED, a {
+	color: #fff;
+}
