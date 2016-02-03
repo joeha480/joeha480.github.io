@@ -1,0 +1,5 @@
+org.daisy.dotify.engine.impl
+org.daisy.dotify.formatter.impl
+org.daisy.dotify.obfl
+org.daisy.dotify.obfl.impl
+org.daisy.dotify.writer.impl
