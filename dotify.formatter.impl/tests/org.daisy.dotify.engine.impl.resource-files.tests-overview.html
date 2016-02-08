@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-02-04T10:50Z</p>
+<p>Updated: 2016-02-08T09:59Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -2025,7 +2025,7 @@
     &lt;/default-template&gt;
   &lt;/layout-master&gt;
   &lt;sequence master="main"&gt;
-    &lt;table col-spacing="1"&gt;
+    &lt;table table-col-spacing="1"&gt;
       &lt;tr&gt;
         &lt;td border-bottom-style="solid" border-bottom-width="1" border-bottom-align="center"&gt;⠿⠿⠿&lt;/td&gt;
         &lt;td border-bottom-style="solid" border-bottom-width="1" border-bottom-align="center"&gt;⠿⠿⠿&lt;/td&gt;
@@ -2058,10 +2058,10 @@
     &lt;volume rows="5" cols="20" rowgap="0" duplex="true"&gt;
       &lt;section&gt;
         &lt;page&gt;
-          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠀⠀⠀⠀⠀⠀⠿⠿⠿⠀⠀&lt;/row&gt;
-          &lt;row&gt;⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒&lt;/row&gt;
-          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠀⠀⠿⠿⠿⠀⠀&lt;/row&gt;
-          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠀⠀⠀⠀⠀⠀⠿⠿⠿⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠀⠀⠀⠀⠀⠿⠿⠿&lt;/row&gt;
+          &lt;row&gt;⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒&lt;/row&gt;
+          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠿⠿⠿⠿⠀⠿⠿⠿&lt;/row&gt;
+          &lt;row&gt;⠿⠿⠿⠀⠀⠀⠿⠿⠿⠀⠀⠀⠀⠀⠿⠿⠿&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
@@ -2511,6 +2511,993 @@
           &lt;row&gt;⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿&lt;/row&gt;
           &lt;row&gt;⠿⠿⠀⠄⠄⠀⠿⠿⠿⠀⠄⠀⠿⠿⠿&lt;/row&gt;
           &lt;row&gt;⠿⠀⠄⠄⠄⠀⠿⠀⠄⠄⠄⠀⠿&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-align-input.obfl">Table align test<a href="#table/tables-align-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that table align works as expected.</p>
+<h2>table/tables-align-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Table align test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that table align works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td align="left"&gt;⠤⠤ ⠤⠤⠤&lt;/td&gt;
+        &lt;td align="center"&gt;⠤⠤ ⠤⠤⠤&lt;/td&gt;
+        &lt;td align="right"&gt;⠤⠤ ⠤⠤⠤&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-align-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠤⠤⠀⠀⠀⠤⠤⠀⠀⠀⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠀⠤⠤⠤⠀⠀⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-anchor-input.obfl">Tables anchor test<a href="#table/tables-anchor-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with anchors works as expected.</p>
+<h2>table/tables-anchor-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables anchor test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with anchors works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+    &lt;page-area collection="footnotes" max-height="10"/&gt;
+  &lt;/layout-master&gt;
+  &lt;collection name="footnotes"&gt;
+    &lt;item id="note-1"&gt;1&lt;/item&gt;
+  &lt;/collection&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5
+          &lt;anchor item="note-1"/&gt;
+        &lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-anchor-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠁&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-border-input.obfl">Tables with borders test<a href="#table/tables-border-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with borders works as expected.</p>
+<h2>table/tables-border-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables with borders test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with borders works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td border-left-style="solid"&gt;2&lt;/td&gt;
+        &lt;td border-left-style="solid"&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td border-left-style="solid"&gt;8&lt;/td&gt;
+        &lt;td border-left-style="solid"&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-border-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠇⠼⠃⠀⠀⠇⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠀⠼⠑⠀⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠇⠼⠓⠀⠀⠇⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-border2-input.obfl">Tables with borders test<a href="#table/tables-border2-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with borders works as expected.</p>
+<h2>table/tables-border2-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables with borders test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with borders works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table table-col-spacing="1"&gt;
+      &lt;tr&gt;
+        &lt;td border-bottom-style="solid" border-bottom-align="inner"&gt;1&lt;/td&gt;
+        &lt;td border-bottom-style="solid" border-bottom-align="inner"&gt;2&lt;/td&gt;
+        &lt;td border-bottom-style="solid" border-bottom-align="inner"&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-border2-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠼⠃⠀⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠉⠉⠉⠉⠀⠉⠉⠉⠉⠀⠉⠉⠉⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠀⠼⠑⠀⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠀⠼⠓⠀⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-borders-input.obfl">Tables border, margin and padding test<a href="#table/tables-borders-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables can have borders, margins and paddings.</p>
+<h2>table/tables-borders-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables border, margin and padding test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables can have borders, margins and paddings.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="18" page-height="12" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table border-style="solid" border-align="outer" margin-left="1" margin-right="1" margin-top="1" margin-bottom="1" padding-left="1" padding-right="1" padding-top="1" padding-bottom="1"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-borders-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="18" rows="12" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠀⠏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠹&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠀⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉⠀⠀⠀⠸⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠀⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋⠀⠀⠀⠸⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠀⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊⠀⠀⠀⠸⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠧⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠼&lt;/row&gt;
+          &lt;row/&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-col-spacing-input.obfl">Tables test<a href="#table/tables-col-spacing-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-col-spacing-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="11" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table table-col-spacing="1"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠤⠤⠤&lt;/td&gt;
+        &lt;td&gt;⠤⠤⠤&lt;/td&gt;
+        &lt;td&gt;⠤⠤⠤&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-col-spacing-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="11" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠤⠤⠤⠀⠤⠤⠤⠀⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠀⠤⠤⠤⠀⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠀⠤⠤⠤⠀⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-colspan-input.obfl">Tables with colspan test<a href="#table/tables-colspan-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with colspan works as expected.</p>
+<h2>table/tables-colspan-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables with colspan test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with colspan works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table preferred-empty-space="12"&gt;
+      &lt;tr&gt;
+        &lt;td col-span="2"&gt;1&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td col-span="2"&gt;5&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td col-span="3"&gt;7&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-colspan-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠀⠀⠼⠑&lt;/row&gt;
+          &lt;row&gt;⠼⠛&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-input.obfl">Tables test<a href="#table/tables-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-keep-row-input.obfl">Tables test<a href="#table/tables-keep-row-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-keep-row-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="3" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠤⠤⠤⠤
+          &lt;br/&gt;⠤⠤⠤⠤
+        &lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-keep-row-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="3" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠀⠀⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-leader-input.obfl">Table with leader test<a href="#table/tables-leader-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with leaders works as expected.</p>
+<h2>table/tables-leader-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Table with leader test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with leaders works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table preferred-empty-space="12"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠁⠁&lt;/td&gt;
+        &lt;td&gt;
+          &lt;leader position="50%" pattern="⠤" align="center"/&gt;⠁⠁
+          &lt;leader position="100%" pattern="⠤" align="right"/&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td/&gt;
+        &lt;td&gt;⠁⠁⠁⠁⠁⠁&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-leader-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠀⠀⠀⠀⠤⠤⠁⠁⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠁⠁⠁⠁⠁⠁&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-leader2-input.obfl">Table with leader test<a href="#table/tables-leader2-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with leaders works as expected.</p>
+<h2>table/tables-leader2-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Table with leader test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with leaders works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table preferred-empty-space="0" table-col-spacing="1"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠁⠁⠁⠁&lt;/td&gt;
+        &lt;td&gt;⠁⠁⠁⠁⠁⠁&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠁⠁⠁⠁&lt;/td&gt;
+        &lt;td&gt;
+          &lt;leader position="50%" pattern="⠤" align="center"/&gt;⠁⠁
+          &lt;leader position="100%" pattern="⠤" align="right"/&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-leader2-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠀⠁⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠀⠤⠤⠁⠁⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-leader3-input.obfl">Table with leader test<a href="#table/tables-leader3-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with leaders works as expected.</p>
+<h2>table/tables-leader3-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Table with leader test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with leaders works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table preferred-empty-space="0" table-col-spacing="1"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠁⠁⠁⠁⠁⠁&lt;/td&gt;
+        &lt;td&gt;⠁⠁⠁⠁&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;leader position="50%" pattern="⠤" align="center"/&gt;⠁⠁
+          &lt;leader position="100%" pattern="⠤" align="right"/&gt;
+        &lt;/td&gt;
+        &lt;td&gt;⠁⠁⠁⠁&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-leader3-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁⠁⠀⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠁⠁⠤⠤⠀⠁⠁⠁⠁&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-marker-input.obfl">Tables markers test<a href="#table/tables-marker-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with markers works as expected.</p>
+<h2>table/tables-marker-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables markers test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with markers works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header&gt;
+        &lt;field&gt;
+          &lt;marker-reference marker="pagenum" direction="forward" scope="sequence"/&gt;
+        &lt;/field&gt;
+        &lt;field&gt;
+          &lt;string value="⠀"/&gt;
+        &lt;/field&gt;
+      &lt;/header&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5
+          &lt;marker class="pagenum" value="1"/&gt;
+        &lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-marker-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-multiline-input.obfl">Tables with multiple row cells test<a href="#table/tables-multiline-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with multiple row cells works as expected.</p>
+<h2>table/tables-multiline-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables with multiple row cells test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with multiple row cells works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;⠤​⠤​⠤​⠤​⠤​⠤​⠤​⠤​&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-multiline-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠼⠃⠀⠀⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠀⠀⠀⠀⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠤⠤⠤⠤⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠀⠀⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-row-spacing-input.obfl">Tables test<a href="#table/tables-row-spacing-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-row-spacing-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="12" duplex="true" row-spacing="2.0"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;table row-spacing="1.0"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-row-spacing-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="12" rowgap="4" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+          &lt;row rowgap="0"&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row rowgap="0"&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row rowgap="0"&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-rowspan-input.obfl">Tables with colspan test<a href="#table/tables-rowspan-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables with colspan works as expected.</p>
+<h2>table/tables-rowspan-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables with colspan test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables with colspan works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td row-span="2"&gt;1
+          &lt;br/&gt;3
+        &lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-rowspan-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃&lt;/row&gt;
+          &lt;row&gt;⠼⠉⠀⠀⠼⠙&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-shrink-input.obfl">Tables test<a href="#table/tables-shrink-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-shrink-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table preferred-empty-space="0"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;123&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-shrink-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠼⠁⠃⠉⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠼⠓⠀⠀⠼⠊&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
