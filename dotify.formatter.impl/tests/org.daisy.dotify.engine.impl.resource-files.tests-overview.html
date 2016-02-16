@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-02-15T10:51Z</p>
+<p>Updated: 2016-02-16T11:40Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -6995,7 +6995,7 @@
     &lt;/default-template&gt;
   &lt;/layout-master&gt;
   &lt;sequence master="main"&gt;
-    &lt;table table-col-spacing="1" preferred-empty-space="0"&gt;
+    &lt;table table-col-spacing="1" preferred-empty-space="2"&gt;
       &lt;tr&gt;
         &lt;td&gt;⠿⠿⠿⠿&lt;/td&gt;
         &lt;td col-span="2"&gt;⠿⠿⠿⠿⠿⠿⠿⠿⠿&lt;/td&gt;
@@ -8223,13 +8223,15 @@
 &lt;/pef&gt;</pre>
 <h1 id="table/tables-leader-input.obfl">Table with leader test<a href="#table/tables-leader-input.obfl" class="internal"> &para;</a>
 </h1>
-<p>Tests that tables with leaders works as expected.</p>
+<p>Tests that tables with leaders works as expected. The leader doesn't interfere with 
+		preferred-empty-space (which would be zero if included).</p>
 <h2>table/tables-leader-input.obfl</h2>
 <pre class="example">
 &lt;obfl version="2011-1" xml:lang="en"&gt;
   &lt;meta&gt;
     &lt;dc:title&gt;Table with leader test&lt;/dc:title&gt;
-    &lt;dc:description&gt;Tests that tables with leaders works as expected.&lt;/dc:description&gt;
+    &lt;dc:description&gt;Tests that tables with leaders works as expected. The leader doesn't interfere with 
+		preferred-empty-space (which would be zero if included).&lt;/dc:description&gt;
   &lt;/meta&gt;
   &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
     &lt;default-template&gt;
@@ -8245,10 +8247,6 @@
           &lt;leader position="50%" pattern="⠤" align="center"/&gt;⠁⠁
           &lt;leader position="100%" pattern="⠤" align="right"/&gt;
         &lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td/&gt;
-        &lt;td&gt;⠁⠁⠁⠁⠁⠁&lt;/td&gt;
       &lt;/tr&gt;
     &lt;/table&gt;
   &lt;/sequence&gt;
@@ -8267,7 +8265,6 @@
       &lt;section&gt;
         &lt;page&gt;
           &lt;row&gt;⠁⠁⠀⠀⠀⠀⠤⠤⠁⠁⠤⠤&lt;/row&gt;
-          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠁⠁⠁⠁⠁⠁&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
@@ -8583,13 +8580,15 @@
 &lt;/pef&gt;</pre>
 <h1 id="table/tables-rowspan-input.obfl">Tables with colspan test<a href="#table/tables-rowspan-input.obfl" class="internal"> &para;</a>
 </h1>
-<p>Tests that tables with colspan works as expected.</p>
+<p>Tests that tables with colspan works as expected. Note that multiline cells do not count towards
+						preferred-empty-space, that's why the first column is bigger than the second.</p>
 <h2>table/tables-rowspan-input.obfl</h2>
 <pre class="example">
 &lt;obfl version="2011-1" xml:lang="en"&gt;
   &lt;meta&gt;
     &lt;dc:title&gt;Tables with colspan test&lt;/dc:title&gt;
-    &lt;dc:description&gt;Tests that tables with colspan works as expected.&lt;/dc:description&gt;
+    &lt;dc:description&gt;Tests that tables with colspan works as expected. Note that multiline cells do not count towards
+						preferred-empty-space, that's why the first column is bigger than the second.&lt;/dc:description&gt;
   &lt;/meta&gt;
   &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
     &lt;default-template&gt;
@@ -8624,8 +8623,8 @@
     &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
       &lt;section&gt;
         &lt;page&gt;
-          &lt;row&gt;⠼⠁⠀⠀⠼⠃&lt;/row&gt;
-          &lt;row&gt;⠼⠉⠀⠀⠼⠙&lt;/row&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠀⠀⠼⠃&lt;/row&gt;
+          &lt;row&gt;⠼⠉⠀⠀⠀⠀⠀⠀⠼⠙&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
