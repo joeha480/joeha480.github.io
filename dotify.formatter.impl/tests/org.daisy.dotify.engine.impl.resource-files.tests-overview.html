@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-02-18T15:58Z</p>
+<p>Updated: 2016-02-19T09:46Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -1885,6 +1885,546 @@
         &lt;page&gt;
           &lt;row&gt;⠤⠤⠀⠤⠤⠀⠤⠤&lt;/row&gt;
           &lt;row&gt;⠤⠤⠀⠤⠤⠀⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="xml-data-input.obfl">Collapsing margins test<a href="#xml-data-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that margins collapse properly.</p>
+<h2>xml-data-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Collapsing margins test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that margins collapse properly.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="false"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;xml-processor name="identity-processor"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:output method="xml" version="1.0" encoding="UTF-8" indent="no"/&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xsl:copy-of select="*"/&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;renderer name="identity-renderer"&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:block)=1" processor="identity-processor" cost="(+ (- 30 $min-block-width) $total-height)"/&gt;
+  &lt;/renderer&gt;
+  &lt;sequence master="body"&gt;
+    &lt;xml-data renderer="identity-renderer"&gt;
+      &lt;block margin-bottom="1"&gt;
+        &lt;block row-spacing="2.0"&gt;⠿⠿⠿⠿⠿⠿⠿⠿ ⠿⠿⠿⠿⠿⠿⠿⠿&lt;/block&gt;
+      &lt;/block&gt;
+    &lt;/xml-data&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>xml-data-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row rowgap="4"&gt;⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
+          &lt;row rowgap="4"&gt;⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
+          &lt;row/&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="xml-data2-input.obfl">Collapsing margins test<a href="#xml-data2-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that margins collapse properly.</p>
+<h2>xml-data2-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Collapsing margins test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that margins collapse properly.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="false"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;xml-processor name="matrix"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xml-processor-result&gt;
+          &lt;block margin-bottom="1"&gt;Matrix table: 
+            &lt;xsl:value-of select="count(/obfl:table/obfl:tr[1]/obfl:td)"/&gt;x
+            &lt;xsl:value-of select="count(/obfl:table/obfl:tr)"/&gt;
+          &lt;/block&gt;
+          &lt;xsl:copy-of select="*"/&gt;
+        &lt;/xml-processor-result&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;xml-processor name="staircase"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="obfl:table"&gt;
+        &lt;block&gt;
+          &lt;xsl:apply-templates/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:tr"&gt;
+        &lt;xsl:apply-templates select="obfl:td[1]"/&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:td"&gt;
+        &lt;block margin-left="2"&gt;
+          &lt;xsl:value-of select="text()"/&gt;
+          &lt;xsl:apply-templates select="following-sibling::*[1]"/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;renderer name="table-renderer"&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="matrix" cost="(+ 1 $total-height)"/&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="staircase" cost="(+ 0 $total-height)"/&gt;
+  &lt;/renderer&gt;
+  &lt;sequence master="body"&gt;
+    &lt;block&gt;Table 1&lt;/block&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;4&lt;/td&gt;
+          &lt;td&gt;5&lt;/td&gt;
+          &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;7&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+          &lt;td&gt;9&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+    &lt;block&gt;Table 2&lt;/block&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+    &lt;block&gt;End&lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>xml-data2-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠠⠞⠁⠃⠇⠑⠀⠼⠁&lt;/row&gt;
+          &lt;row&gt;⠠⠍⠁⠞⠗⠊⠭&lt;/row&gt;
+          &lt;row&gt;⠞⠁⠃⠇⠑⠒⠼⠉⠭⠼⠉&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+          &lt;row&gt;⠠⠞⠁⠃⠇⠑⠀⠼⠃&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠠⠑⠝⠙&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="xml-data3-input.obfl">Collapsing margins test<a href="#xml-data3-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that margins collapse properly.</p>
+<h2>xml-data3-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Collapsing margins test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that margins collapse properly.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="6" duplex="false"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;xml-processor name="matrix"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xml-processor-result&gt;
+          &lt;block margin-bottom="1"&gt;Matrix table: 
+            &lt;xsl:value-of select="count(/obfl:table/obfl:tr[1]/obfl:td)"/&gt;x
+            &lt;xsl:value-of select="count(/obfl:table/obfl:tr)"/&gt;
+          &lt;/block&gt;
+          &lt;xsl:copy-of select="*"/&gt;
+        &lt;/xml-processor-result&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;xml-processor name="staircase"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="obfl:table"&gt;
+        &lt;block&gt;
+          &lt;xsl:apply-templates/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:tr"&gt;
+        &lt;xsl:apply-templates select="obfl:td[1]"/&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:td"&gt;
+        &lt;block margin-left="2"&gt;
+          &lt;xsl:value-of select="text()"/&gt;
+          &lt;xsl:apply-templates select="following-sibling::*[1]"/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;xml-processor name="invalid"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xml-processor-result&gt;
+          &lt;block&gt;Invalid&lt;/block&gt;
+        &lt;/xml-processor-result&gt;
+        &lt;xml-processor-result&gt;
+          &lt;block&gt;Invalid&lt;/block&gt;
+        &lt;/xml-processor-result&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;renderer name="table-renderer"&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="matrix" cost="(+ 1 $total-height)"/&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="staircase" cost="(+ 0 $total-height)"/&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="invalid" cost="(+ 0 $total-height)"/&gt;
+  &lt;/renderer&gt;
+  &lt;sequence master="body"&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;4&lt;/td&gt;
+          &lt;td&gt;5&lt;/td&gt;
+          &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;7&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+          &lt;td&gt;9&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+          &lt;td&gt;1234567&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>xml-data3-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="6" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠠⠍⠁⠞⠗⠊⠭&lt;/row&gt;
+          &lt;row&gt;⠞⠁⠃⠇⠑⠒⠼⠉⠭⠼⠉&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠼⠁⠃⠉⠙⠑⠋⠛&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="xml-data4-input.obfl">XML Data minimum block size<a href="#xml-data4-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that the correct scenario is selected when the min-block-size variable
+		is used to determine the cost. The first scenario would be selected if the cost were
+		the same in both cases.</p>
+<h2>xml-data4-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;XML Data minimum block size&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that the correct scenario is selected when the min-block-size variable
+		is used to determine the cost. The first scenario would be selected if the cost were
+		the same in both cases.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="9" duplex="false"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;xml-processor name="p1"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="obfl:table"&gt;
+        &lt;block&gt;
+          &lt;xsl:apply-templates/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:tr"&gt;
+        &lt;xsl:apply-templates select="obfl:td[1]"/&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:td"&gt;
+        &lt;block margin-left="2"&gt;
+          &lt;xsl:value-of select="text()"/&gt;
+          &lt;xsl:apply-templates select="following-sibling::*[1]"/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;xml-processor name="p2"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="obfl:table"&gt;
+        &lt;block&gt;
+          &lt;xsl:apply-templates/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:tr"&gt;
+        &lt;xsl:apply-templates select="obfl:td[1]"/&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:td"&gt;
+        &lt;block margin-left="1"&gt;
+          &lt;xsl:value-of select="text()"/&gt;
+          &lt;xsl:apply-templates select="following-sibling::*[1]"/&gt;
+        &lt;/block&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;renderer name="table-renderer"&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="p1" cost="(- 14 $min-block-width)"/&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="p2" cost="(- 14 $min-block-width)"/&gt;
+  &lt;/renderer&gt;
+  &lt;sequence master="body"&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;4&lt;/td&gt;
+          &lt;td&gt;5&lt;/td&gt;
+          &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;7&lt;/td&gt;
+          &lt;td&gt;8&lt;/td&gt;
+          &lt;td&gt;9&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>xml-data4-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="9" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠀⠼⠁&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠃&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠀⠼⠙&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠑&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠀⠼⠛&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠼⠓&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="xml-data5-input.obfl">XML Data minimum block size with matrix table<a href="#xml-data5-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that the correct scenario is selected when the min-block-size variable
+		is used to determine the cost in a matrix table. The first scenario would be selected if the
+		cost were the same in both cases.</p>
+<h2>xml-data5-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;XML Data minimum block size with matrix table&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that the correct scenario is selected when the min-block-size variable
+		is used to determine the cost in a matrix table. The first scenario would be selected if the
+		cost were the same in both cases.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="14" page-height="9" duplex="false"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;xml-processor name="copy"&gt;
+    &lt;xsl:stylesheet version="2.0"&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xml-processor-result&gt;
+          &lt;xsl:copy-of select="*"/&gt;
+        &lt;/xml-processor-result&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;xml-processor name="reverse"&gt;
+    &lt;xsl:stylesheet version="2.0" exclude-result-prefixes="obfl"&gt;
+      &lt;xsl:template match="/"&gt;
+        &lt;xml-processor-result&gt;
+          &lt;xsl:apply-templates select="*"/&gt;
+        &lt;/xml-processor-result&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:table"&gt;
+        &lt;table&gt;
+          &lt;xsl:apply-templates select="." mode="inner"/&gt;
+        &lt;/table&gt;
+      &lt;/xsl:template&gt;
+      &lt;xsl:template match="obfl:table" mode="inner"&gt;
+        &lt;xsl:param name="pos" select="1"/&gt;
+        &lt;tr&gt;
+          &lt;xsl:for-each select="obfl:tr"&gt;
+            &lt;xsl:copy-of select="obfl:td[$pos]"/&gt;
+          &lt;/xsl:for-each&gt;
+        &lt;/tr&gt;
+        &lt;xsl:if test="obfl:tr/obfl:td[$pos+1]"&gt;
+          &lt;xsl:apply-templates select="." mode="inner"&gt;
+            &lt;xsl:with-param name="pos" select="$pos+1"/&gt;
+          &lt;/xsl:apply-templates&gt;
+        &lt;/xsl:if&gt;
+      &lt;/xsl:template&gt;
+    &lt;/xsl:stylesheet&gt;
+  &lt;/xml-processor&gt;
+  &lt;renderer name="table-renderer"&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="copy" cost="(- 14 $min-block-width)"/&gt;
+    &lt;rendering-scenario qualifier="count(/obfl:table)=1" processor="reverse" cost="(- 14 $min-block-width)"/&gt;
+  &lt;/renderer&gt;
+  &lt;sequence master="body"&gt;
+    &lt;xml-data renderer="table-renderer"&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;4&lt;/td&gt;
+          &lt;td&gt;5&lt;/td&gt;
+          &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/xml-data&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>xml-data5-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="14" rows="9" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠙&lt;/row&gt;
+          &lt;row&gt;⠼⠃⠀⠀⠼⠑&lt;/row&gt;
+          &lt;row&gt;⠼⠉⠀⠀⠼⠋&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
