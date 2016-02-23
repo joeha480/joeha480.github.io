@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-02-19T11:21Z</p>
+<p>Updated: 2016-02-23T09:22Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -9222,6 +9222,57 @@
           &lt;row&gt;⠼⠁⠼⠁⠃⠉⠼⠉&lt;/row&gt;
           &lt;row&gt;⠼⠙⠼⠑⠀⠀⠼⠋&lt;/row&gt;
           &lt;row&gt;⠼⠛⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-shrink2-input.obfl">Tables test<a href="#table/tables-shrink2-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables can complete layout even if a solution crashes.</p>
+<h2>table/tables-shrink2-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables can complete layout even if a solution crashes.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td col-span="1" row-span="1"&gt;1&lt;/td&gt;
+        &lt;td col-span="1" row-span="1"&gt;PROBLEM&lt;/td&gt;
+        &lt;td col-span="1" row-span="1"&gt;overcome&lt;/td&gt;
+        &lt;td col-span="1" row-span="1"&gt;to manage a problem successfully&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-shrink2-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠠⠠⠕⠧⠞⠕⠀⠍⠁⠝⠤&lt;/row&gt;
+          &lt;row&gt;⠁⠏⠗⠑⠗⠁⠛⠑⠀⠁&lt;/row&gt;
+          &lt;row&gt;⠀⠕⠃⠤⠀⠏⠗⠕⠃⠇⠑⠍&lt;/row&gt;
+          &lt;row&gt;⠀⠤⠀⠉⠕⠎⠥⠉⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠇⠑⠍⠑⠉⠑⠎⠎⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠍⠀⠀⠀⠋⠥⠇⠇⠽&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
