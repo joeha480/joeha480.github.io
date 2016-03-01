@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-03-01T13:06Z</p>
+<p>Updated: 2016-03-01T15:36Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -8976,6 +8976,263 @@
           &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
           &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
           &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀⠼⠊&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-missing-cell-input.obfl">Tables test<a href="#table/tables-missing-cell-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-missing-cell-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-missing-cell-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀⠼⠋&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀⠼⠓⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-missing-cell2-input.obfl">Tables test<a href="#table/tables-missing-cell2-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-missing-cell2-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td row-span="2"&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td row-span="2"&gt;4&lt;/td&gt;
+        &lt;td row-span="2"&gt;5&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-missing-cell2-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-missing-cell3-input.obfl">Tables test<a href="#table/tables-missing-cell3-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-missing-cell3-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td row-span="2"&gt;2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr/&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-missing-cell3-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠼⠃⠀⠀⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-missing-cell4-input.obfl">Tables test<a href="#table/tables-missing-cell4-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-missing-cell4-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td row-span="3"&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;7&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-missing-cell4-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀&lt;/row&gt;
+          &lt;row&gt;⠼⠛⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="table/tables-missing-cell5-input.obfl">Tables test<a href="#table/tables-missing-cell5-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that tables works as expected.</p>
+<h2>table/tables-missing-cell5-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Tables test&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that tables works as expected.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="body" page-width="12" page-height="6" duplex="true"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="body"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td row-span="2"&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>table/tables-missing-cell5-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="12" rows="6" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠼⠃⠀⠀⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠼⠙⠀⠀⠼⠑⠀⠀&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
