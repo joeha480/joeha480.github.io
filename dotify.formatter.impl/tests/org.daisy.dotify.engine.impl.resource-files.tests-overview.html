@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-03-23T08:50Z</p>
+<p>Updated: 2016-03-23T09:26Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -1591,6 +1591,47 @@
           &lt;row rowgap="4"&gt;⠿⠿⠿⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
           &lt;row/&gt;
           &lt;row&gt;⠿⠿⠿⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="style-empty-input.obfl">Single empty style<a href="#style-empty-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests an empty style element</p>
+<h2>style-empty-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="en"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;Single empty style&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests an empty style element&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="a" duplex="false" page-width="10" page-height="25"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="a"&gt;
+    &lt;block&gt;
+      &lt;style name="table-cell-continued"/&gt;
+    &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>style-empty-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+      &lt;dc:identifier&gt;identifier?&lt;/dc:identifier&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="10" rows="25" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠻⠻&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
