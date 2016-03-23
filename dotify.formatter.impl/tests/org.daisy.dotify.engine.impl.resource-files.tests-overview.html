@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-03-23T11:20Z</p>
+<p>Updated: 2016-03-23T13:56Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -2825,13 +2825,13 @@
 &lt;/pef&gt;</pre>
 <h1 id="dp2/current-page-various-positions-input.obfl">current-page-various-positions<a href="#dp2/current-page-various-positions-input.obfl" class="internal"> &para;</a>
 </h1>
-<p>Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number. Broken: page numbering bug, possibly related to https://github.com/joeha480/dotify/issues/134.</p>
+<p>Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number.</p>
 <h2>dp2/current-page-various-positions-input.obfl</h2>
 <pre class="example">
 &lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
   &lt;meta&gt;
     &lt;dc:title&gt;current-page-various-positions&lt;/dc:title&gt;
-    &lt;dc:description&gt;Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number. Broken: page numbering bug, possibly related to https://github.com/joeha480/dotify/issues/134.&lt;/dc:description&gt;
+    &lt;dc:description&gt;Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number.&lt;/dc:description&gt;
   &lt;/meta&gt;
   &lt;layout-master name="a" page-width="15" page-height="5" duplex="true" page-number-variable="page"&gt;
     &lt;default-template&gt;
@@ -2900,7 +2900,7 @@
   &lt;head&gt;
     &lt;meta&gt;
       &lt;dc:title&gt;current-page-various-positions&lt;/dc:title&gt;
-      &lt;dc:description&gt;Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number. Broken: page numbering bug, possibly related to https://github.com/joeha480/dotify/issues/134.&lt;/dc:description&gt;
+      &lt;dc:description&gt;Tests current-page with different layout-masters. Sequences with different layout-masters, that each place current-page in a different position (header, footer or nowhere), follow each other. Also tests resetting page number with initial-page-number.&lt;/dc:description&gt;
       &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
     &lt;/meta&gt;
   &lt;/head&gt;
@@ -4804,6 +4804,110 @@
     &lt;/volume&gt;
   &lt;/body&gt;
 &lt;/pef&gt;</pre>
+<h1 id="dp2/marker-reference-spread-initial-page-number-input.obfl">marker-reference-spread-initial-page-number<a href="#dp2/marker-reference-spread-initial-page-number-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that marker-reference with scope spread is not influenced by initial-page-number.</p>
+<h2>dp2/marker-reference-spread-initial-page-number-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;marker-reference-spread-initial-page-number&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that marker-reference with scope spread is not influenced by initial-page-number.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="a" page-width="10" page-height="5" duplex="true" page-number-variable="page"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer&gt;
+        &lt;field&gt;
+          &lt;marker-reference marker="foo" direction="backward" scope="spread"/&gt;
+        &lt;/field&gt;
+        &lt;field/&gt;
+        &lt;field/&gt;
+      &lt;/footer&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="a" initial-page-number="2"&gt;
+    &lt;block&gt;
+              ⠁⠁⠁⠁⠁
+              ⠁⠁⠁⠁⠁
+              ⠁⠁⠁⠁⠁
+              ⠁⠁⠁⠁⠁
+              ​
+              ⠁⠁⠁⠁⠁
+              
+      &lt;marker class="foo" value="1"/&gt;
+              ⠁⠁⠁⠁⠁
+            
+    &lt;/block&gt;
+    &lt;block break-before="page"&gt;​
+            ⠁⠁⠁⠁⠁
+            ⠁⠁⠁⠁⠁
+            ⠁⠁⠁⠁⠁
+            ⠁⠁⠁⠁⠁
+            ​
+            ⠁⠁⠁⠁⠁
+            
+      &lt;marker class="foo" value="2"/&gt;
+            ⠁⠁⠁⠁⠁
+            
+    &lt;/block&gt;
+    &lt;block break-before="page"&gt;​
+            ⠁⠁⠁⠁⠁
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/marker-reference-spread-initial-page-number-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;marker-reference-spread-initial-page-number&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests that marker-reference with scope spread is not influenced by initial-page-number.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="10" rows="5" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠼⠁⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠁⠁⠁⠁⠁&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row/&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
 <h1 id="dp2/marker-reference-spread-start-workaround-input.obfl">marker-reference-spread-start-workaround<a href="#dp2/marker-reference-spread-start-workaround-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests (hypothetical) marker-reference type that corresponds with 'spread-start' in CSS. This type is not yet directly supported in OBFL. As a workaround I do a forward page-content search for the marker 'foo/prev' starting on the left page (rendered left-aligned on the first header line), and if that does not return a value, a backward sequence search for the marker 'foo' also starting on the left page (right-aligned on first header line). At any position in the OBFL the value of the preceding marker of class 'foo' matches the value of the following marker of class 'foo/prev'. This workaround is problematic for the first page of the document (see https://github.com/joeha480/dotify/issues/144). A better workaround would be to do a forward spread-content search for 'foo/prev' starting on the left page (left-aligned on the second header line), and if that does not return a value, a backward sequence search for the marker 'foo' starting on the right page (right-aligned on the second header line). Unfortunately scope 'spread-content' is not available. In this test I use 'spread' instead. In addition, tests marker-reference with scope spread-content and direction backward, starting on the right page, which corresponds with 'page-last-except-start' in CSS (bottom left corner). Because 'spread-content' is not available I use 'spread' in this test. Everything tested on both left- and right-hand pages. Tested with markers at the beginning of the sequence, in the middle of a page, at a soft page break within a block, at a soft page break between two blocks, and at a hard page break. Broken: behavior of page-content changed in Dotify 2.0.0 (see https://github.com/joeha480/dotify/issues/150).</p>
@@ -6103,13 +6207,13 @@
 &lt;/pef&gt;</pre>
 <h1 id="dp2/page-number-follows-leader-input.obfl">page-number-follows-leader<a href="#dp2/page-number-follows-leader-input.obfl" class="internal"> &para;</a>
 </h1>
-<p>Tests leader followed by page-number. Broken: see https://github.com/braillespecs/obfl/issues/31.</p>
+<p>Tests leader followed by page-number.</p>
 <h2>dp2/page-number-follows-leader-input.obfl</h2>
 <pre class="example">
 &lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
   &lt;meta&gt;
     &lt;dc:title&gt;page-number-follows-leader&lt;/dc:title&gt;
-    &lt;dc:description&gt;Tests leader followed by page-number. Broken: see https://github.com/braillespecs/obfl/issues/31.&lt;/dc:description&gt;
+    &lt;dc:description&gt;Tests leader followed by page-number.&lt;/dc:description&gt;
   &lt;/meta&gt;
   &lt;layout-master name="a" duplex="false" page-width="10" page-height="25"&gt;
     &lt;default-template&gt;
@@ -6131,7 +6235,7 @@
   &lt;head&gt;
     &lt;meta&gt;
       &lt;dc:title&gt;page-number-follows-leader&lt;/dc:title&gt;
-      &lt;dc:description&gt;Tests leader followed by page-number. Broken: see https://github.com/braillespecs/obfl/issues/31.&lt;/dc:description&gt;
+      &lt;dc:description&gt;Tests leader followed by page-number.&lt;/dc:description&gt;
       &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
     &lt;/meta&gt;
   &lt;/head&gt;
@@ -6848,6 +6952,84 @@
           &lt;row rowgap="4"&gt;⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
           &lt;row&gt;⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒&lt;/row&gt;
           &lt;row&gt;⠿⠿⠿⠿⠿⠿⠿⠿&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="dp2/sheet-calculation-initial-page-number-input.obfl">sheet-calculation-initial-page-number<a href="#dp2/sheet-calculation-initial-page-number-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests that calculation of sheets is not influenced by initial-page-number.</p>
+<h2>dp2/sheet-calculation-initial-page-number-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;sheet-calculation-initial-page-number&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests that calculation of sheets is not influenced by initial-page-number.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="a" page-width="10" page-height="5" duplex="true" page-number-variable="page"&gt;
+    &lt;default-template&gt;
+      &lt;header&gt;
+        &lt;field&gt;
+          &lt;current-page number-format="default"/&gt;
+        &lt;/field&gt;
+      &lt;/header&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="a" initial-page-number="2"&gt;
+    &lt;block&gt;⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+  &lt;sequence master="a"&gt;
+    &lt;block&gt;⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/sheet-calculation-initial-page-number-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;sheet-calculation-initial-page-number&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests that calculation of sheets is not influenced by initial-page-number.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume rows="5" cols="10" rowgap="0" duplex="true"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠃&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠉&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠙&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠼⠑&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
