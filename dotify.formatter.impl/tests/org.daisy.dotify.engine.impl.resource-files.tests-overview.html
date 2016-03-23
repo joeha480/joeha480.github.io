@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-03-23T10:23Z</p>
+<p>Updated: 2016-03-23T11:20Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -4594,13 +4594,13 @@
 &lt;/pef&gt;</pre>
 <h1 id="dp2/marker-reference-spread-across-sequence-input.obfl">marker-reference-spread-across-sequence<a href="#dp2/marker-reference-spread-across-sequence-input.obfl" class="internal"> &para;</a>
 </h1>
-<p>Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page. Broken: see https://github.com/joeha480/dotify/issues/143.</p>
+<p>Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page.</p>
 <h2>dp2/marker-reference-spread-across-sequence-input.obfl</h2>
 <pre class="example">
 &lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
   &lt;meta&gt;
     &lt;dc:title&gt;marker-reference-spread-across-sequence&lt;/dc:title&gt;
-    &lt;dc:description&gt;Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page. Broken: see https://github.com/joeha480/dotify/issues/143.&lt;/dc:description&gt;
+    &lt;dc:description&gt;Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page.&lt;/dc:description&gt;
   &lt;/meta&gt;
   &lt;layout-master name="a" page-width="10" page-height="5" duplex="true" page-number-variable="page"&gt;
     &lt;template use-when="(= (% $page 2) 1)"&gt;
@@ -4655,7 +4655,7 @@
   &lt;head&gt;
     &lt;meta&gt;
       &lt;dc:title&gt;marker-reference-spread-across-sequence&lt;/dc:title&gt;
-      &lt;dc:description&gt;Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page. Broken: see https://github.com/joeha480/dotify/issues/143.&lt;/dc:description&gt;
+      &lt;dc:description&gt;Tests that marker-reference with scope spread searches beyond sequence boundaries, i.e. a search on the first page of a new sequence includes assignments made on the last page of the previous sequence if that last page is a left-hand page.&lt;/dc:description&gt;
       &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
     &lt;/meta&gt;
   &lt;/head&gt;
@@ -4749,9 +4749,8 @@
                 ⠁⠁⠁⠁⠁
               
     &lt;/block&gt;
-  &lt;/sequence&gt;
-  &lt;sequence master="a"&gt;
-    &lt;block&gt;⠁⠁⠁⠁⠁
+    &lt;block break-before="page"&gt;​
+                ⠁⠁⠁⠁⠁
               &lt;/block&gt;
   &lt;/sequence&gt;
 &lt;/obfl&gt;</pre>
