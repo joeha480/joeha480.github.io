@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-06-01T10:23Z</p>
+<p>Updated: 2016-06-01T11:31Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -8434,6 +8434,85 @@
           &lt;row&gt;⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿⠀⠿⠿⠿⠿⠿&lt;/row&gt;
           &lt;row&gt;⠿⠿⠀⠄⠄⠀⠿⠿⠿⠀⠄⠀⠿⠿⠿&lt;/row&gt;
           &lt;row&gt;⠿⠀⠄⠄⠄⠀⠿⠀⠄⠄⠄⠀⠿&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="dp2/toc-sequence-in-post-content-input.obfl">toc-sequence-in-post-content<a href="#dp2/toc-sequence-in-post-content-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests toc-sequence in post-content.</p>
+<h2>dp2/toc-sequence-in-post-content-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;toc-sequence-in-post-content&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests toc-sequence in post-content.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="main" duplex="false" page-width="15" page-height="5"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;table-of-contents name="toc"&gt;
+    &lt;toc-entry ref-id="ch_1"&gt;
+              ⠿⠿⠿ ⠄⠄⠄⠄⠄⠄⠄⠄ 
+      &lt;page-number ref-id="ch_1" number-format="default"/&gt;
+    &lt;/toc-entry&gt;
+    &lt;toc-entry ref-id="ch_2"&gt;
+              ⠿⠿⠿ ⠄⠄⠄⠄⠄⠄⠄⠄ 
+      &lt;page-number ref-id="ch_2" number-format="default"/&gt;
+    &lt;/toc-entry&gt;
+  &lt;/table-of-contents&gt;
+  &lt;volume-template sheets-in-volume-max="100"&gt;
+    &lt;post-content&gt;
+      &lt;toc-sequence toc="toc" master="main" range="volume"/&gt;
+    &lt;/post-content&gt;
+  &lt;/volume-template&gt;
+  &lt;sequence master="main"&gt;
+    &lt;block id="ch_1" translate=""&gt;⠿⠿ &lt;/block&gt;
+    &lt;block&gt;⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤
+            &lt;/block&gt;
+    &lt;block id="ch_2" translate=""&gt;⠿⠿ &lt;/block&gt;
+    &lt;block&gt;⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤
+              ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤ ⠤⠤⠤⠤⠤
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/toc-sequence-in-post-content-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;toc-sequence-in-post-content&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests toc-sequence in post-content.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="15" rows="5" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠿⠿&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠿⠿&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠀⠤⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠿⠿⠿⠀⠄⠄⠄⠄⠄⠄⠄⠄⠀⠼⠁&lt;/row&gt;
+          &lt;row&gt;⠿⠿⠿⠀⠄⠄⠄⠄⠄⠄⠄⠄⠀⠼⠃&lt;/row&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
