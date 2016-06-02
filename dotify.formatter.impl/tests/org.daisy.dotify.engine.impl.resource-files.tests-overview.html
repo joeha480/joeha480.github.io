@@ -46,7 +46,7 @@
 				</style>
 </head>
 <body>
-<p>Updated: 2016-06-02T08:47Z</p>
+<p>Updated: 2016-06-02T09:11Z</p>
 <h1 id="border-center-input.obfl">Border center test<a href="#border-center-input.obfl" class="internal"> &para;</a>
 </h1>
 <p>Tests border alignment.</p>
@@ -2772,6 +2772,216 @@
           &lt;row rowgap="4"&gt;⠤⠤⠤⠤&lt;/row&gt;
           &lt;row rowgap="4"&gt;⠤⠤⠤⠤&lt;/row&gt;
           &lt;row&gt;⠤⠤⠤⠤&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="dp2/block-underline-input.obfl">block-underline<a href="#dp2/block-underline-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests underlining of blocks with various properties and contents.</p>
+<h2>dp2/block-underline-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;block-underline&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests underlining of blocks with various properties and contents.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="main" duplex="false" page-width="15" page-height="50"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="main"&gt;
+    &lt;block underline-style="solid"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid"&gt;⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" padding-left="2"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" margin-left="2"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" align="center"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" padding-right="2" align="center"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" first-line-indent="2"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" text-indent="2" first-line-indent="2"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" text-indent="2" first-line-indent="0"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" row-spacing="2"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" margin-bottom="1"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" padding-bottom="1"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌ ⠌⠌⠌⠌⠌
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/block-underline-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;block-underline&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests underlining of blocks with various properties and contents.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="15" rows="50" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠀⠀⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row rowgap="4"&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row rowgap="4"&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row/&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row/&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="dp2/block-underline-styles-input.obfl">block-underline-styles<a href="#dp2/block-underline-styles-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests various combinations of underline-style, underline-align and underline-width.</p>
+<h2>dp2/block-underline-styles-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;block-underline-styles&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests various combinations of underline-style, underline-align and underline-width.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="main" duplex="false" page-width="15" page-height="15"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="main"&gt;
+    &lt;block underline-style="solid" underline-align="center"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" underline-align="inner"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" underline-align="outer"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" underline-align="inner" underline-width="2"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" underline-align="outer" underline-width="2"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+    &lt;block underline-style="solid" underline-width="3"&gt;⠌⠌⠌⠌
+            &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/block-underline-styles-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;block-underline-styles&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests various combinations of underline-style, underline-align and underline-width.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="15" rows="15" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠒⠒⠒⠒&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠉⠉⠉⠉&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠤⠤⠤⠤&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠛⠛⠛⠛&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠶⠶⠶⠶&lt;/row&gt;
+          &lt;row&gt;⠌⠌⠌⠌&lt;/row&gt;
+          &lt;row&gt;⠿⠿⠿⠿&lt;/row&gt;
+        &lt;/page&gt;
+      &lt;/section&gt;
+    &lt;/volume&gt;
+  &lt;/body&gt;
+&lt;/pef&gt;</pre>
+<h1 id="dp2/block-underline-with-child-block-input.obfl">block-underline-with-child-block<a href="#dp2/block-underline-with-child-block-input.obfl" class="internal"> &para;</a>
+</h1>
+<p>Tests underlining of a block with a child block. Currently causes an error because the behavior is undefined.</p>
+<h2>dp2/block-underline-with-child-block-input.obfl</h2>
+<pre class="example">
+&lt;obfl version="2011-1" xml:lang="und" hyphenate="false"&gt;
+  &lt;meta&gt;
+    &lt;dc:title&gt;block-underline-with-child-block&lt;/dc:title&gt;
+    &lt;dc:description&gt;Tests underlining of a block with a child block. Currently causes an error because the behavior is undefined.&lt;/dc:description&gt;
+  &lt;/meta&gt;
+  &lt;layout-master name="main" duplex="false" page-width="15" page-height="15"&gt;
+    &lt;default-template&gt;
+      &lt;header/&gt;
+      &lt;footer/&gt;
+    &lt;/default-template&gt;
+  &lt;/layout-master&gt;
+  &lt;sequence master="main"&gt;
+    &lt;block underline-style="solid"&gt;⠌⠌⠌⠌
+              
+      &lt;block&gt;⠌⠌⠌⠌
+              &lt;/block&gt;
+    &lt;/block&gt;
+  &lt;/sequence&gt;
+&lt;/obfl&gt;</pre>
+<h2>dp2/block-underline-with-child-block-expected.pef</h2>
+<pre class="example">
+&lt;pef version="2008-1"&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+      &lt;dc:title&gt;block-underline-with-child-block&lt;/dc:title&gt;
+      &lt;dc:description&gt;Tests underlining of a block with a child block. Currently causes an error because the behavior is undefined.&lt;/dc:description&gt;
+      &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;
+    &lt;/meta&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;volume cols="40" rows="25" rowgap="0" duplex="false"&gt;
+      &lt;section&gt;
+        &lt;page&gt;
+          &lt;row/&gt;
         &lt;/page&gt;
       &lt;/section&gt;
     &lt;/volume&gt;
